@@ -6,8 +6,9 @@
 ## 최종 제출 구성
 
 1. 메일 본문에 아래 3줄 소개와 공개 GitHub 링크를 넣는다.
-2. `output/playwright/pal-comf-demo.webm`을 파일로 첨부한다.
-3. AI 활용 기록과 회고는 평가자가 바로 열 수 있도록 개별 링크를 함께 넣는다.
+2. `output/pdf/pal-comf-work-conversation-log.pdf`와
+   `output/playwright/pal-comf-demo.webm`을 파일로 첨부한다.
+3. 작업 대화 기록, 상세 AI 작업 기록과 회고의 공개 링크를 함께 넣는다.
 4. 별도 소스 ZIP은 보내지 않는다. 과제 안내상 코드는 필수가 아니며 공개
    GitHub 저장소가 결과물과 재현 정보를 함께 제공한다.
 
@@ -37,7 +38,10 @@
 결과물 및 전체 안내:
 https://github.com/r2gul4r/Pal-comf_WebApp
 
-AI 활용 기록:
+작업 대화 기록 PDF:
+https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/output/pdf/pal-comf-work-conversation-log.pdf
+
+상세 AI 작업 기록:
 https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/docs/AI_WORKLOG.md
 
 회고:
@@ -46,7 +50,7 @@ https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/docs/RETROSPECTIVE.md
 실행 영상:
 https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/output/playwright/pal-comf-demo.webm
 
-같은 영상 파일을 메일에도 첨부했습니다.
+같은 작업 대화 기록 PDF와 실행 영상 파일을 메일에도 첨부했습니다.
 
 감사합니다.
 [이름]
@@ -58,7 +62,7 @@ https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/output/playwright/pal-comf-
 - `[이름]`, `[연락처]`를 실제 정보로 교체
 - 받은 메일의 제출 기한 재확인
 - 받는 사람 주소 `juran03@sortech.co.kr` 재확인
-- 4.68MB WebM 영상이 실제로 첨부됐는지 확인
+- 약 189KB PDF와 4.68MB WebM 영상이 실제로 첨부됐는지 확인
 - GitHub 저장소가 로그아웃 상태에서도 열리는지 확인
-- AI 작업 기록과 회고 링크가 각각 열리는지 확인
+- PDF, AI 작업 기록과 회고 링크가 각각 열리는지 확인
 - 보낸 편지함에서 본문 링크와 첨부 파일을 한 번 더 확인
