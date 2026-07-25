@@ -1,0 +1,40 @@
+# Dependencies and build output
+node_modules/
+.pnpm-store/
+dist/
+coverage/
+playwright-report/
+test-results/
+output/playwright/antigravity-review/
+output/playwright/video-review/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Game extraction tools and caches
+.cache/
+tools/extractor/bin/
+tools/extractor/obj/
+tools/extractor/cache/
+
+# Generated game data and copyrighted source assets
+data/generated/
+public/generated/pals/
+public/generated/ui/
+*.uasset
+*.uexp
+*.ubulk
+*.uptnl
+*.locres
+*.pak
+*.ucas
+*.utoc
+
+# Logs and OS/editor noise
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

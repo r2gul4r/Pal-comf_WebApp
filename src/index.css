@@ -1,0 +1,67 @@
+:root {
+  font-family:
+    Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Inter, system-ui,
+    sans-serif;
+  color: #eef9f4;
+  background: #08110f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #eef9f4;
+  --muted: #91a9a1;
+  --line: rgba(172, 220, 203, 0.16);
+  --panel: rgba(14, 31, 27, 0.86);
+  --panel-strong: #122c26;
+  --mint: #82f2c3;
+  --cyan: #63d6db;
+  --amber: #f2c96d;
+  --coral: #ff8e78;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #08110f;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(53, 142, 111, 0.22), transparent 28rem),
+    radial-gradient(circle at 88% 20%, rgba(39, 107, 117, 0.16), transparent 24rem),
+    #08110f;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(130, 242, 195, 0.55);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  color: #06100d;
+  background: var(--mint);
+}

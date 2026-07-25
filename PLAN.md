@@ -8,6 +8,41 @@
 
 > "거점 전체 팰의 수작업 적성을 올리고 싶다"
 > → 해당 효과를 가진 팰, 파트너 스킬 설명, 적용 대상, 증가량, 중첩 여부, 팰 자체 작업 적성을 보여준다.
+## 1.1 현재 상태 — 2026-07-25
+
+- 공개 GitHub 저장소 `r2gul4r/Pal-comf_WebApp`과 로컬 `main` 연결 완료
+- 현재 Build ID `24181527`, UE `5.1.1`, pak 185,003 엔트리 확인
+- `Mappings101.usmap`으로 `DT_PalMonsterParameter` 753행 직렬화 확인
+- `sample` 명령으로 팰 5종 JSON·128×128 PNG 5장 생성 및 핑토 외부 교차검증 완료
+- `generate` 명령으로 정상 도감 팰 16종, 파트너 스킬 16종, 특성 9종,
+  효과 26개, WebP 16장을 생성하고 무결성 오류 0개 확인
+- 게임 구조 필드와 한국어 원문이 충돌하는 중첩 값은 `unknown`으로 보존
+- React 역검색 UI의 작업·종류·범위·중첩·텍스트 필터와 결과 카드 구현 완료
+- 설치본 `WBP_IconPalWork.IconMap`에서 컬러 작업 적성 아이콘 13종과
+  패시브 UI 텍스처 15종을 선택 추출하고
+  WBP `SetPassiveSkill`의 Rank 분기, 랭크별 화살표와
+  일반·노란·파란·세계수 애니메이션을 생성 메타에 결합
+- 세계수 전용 Dissolve·Scroll 2겹·BaseGrd 머티리얼 구성을 확인하고,
+  웹에서는 보라색 효과만 저농도로 표현
+- Antigravity 결과 카드의 패시브 상단을 인게임 패시브 바로 교체하고,
+  게임 원문을 효과 내용칸에 상시 표시하며 작업 아이콘은 컬러 Texture2D 사용
+- 설치본 `DT_WorldMapUIData.Tree`의 `T_TreeMap`, 불길한 알 아이콘과
+  세계수 알 스포너 30개를 선택 추출해 `world-tree-eggs.json`으로 생성
+- 현재 5174 Antigravity 화면에 알 아이콘 마커, 인게임 좌표 목록,
+  포인트 선택, 드래그 이동과 커서 기준 휠 100~500% 확대 기능을 결합하고
+  모바일 가로 넘침 제거
+- 거점 강화 역검색·패시브 결과와 불길한 알 지도를 상위 탭으로 분리하고,
+  탭 왕복 뒤에도 검색 필터와 지도 줌·선택 포인트 상태를 유지
+- 포인트 4의 지도 실루엣 외곽 배치는 UI 좌표 오류가 아니라 설치본 actor
+  원본 위치임을 패키지·위젯 변환식·외부 지도 표본으로 교차검증해 수동 보정 안 함
+- 작업 효과별 검색 가능 작업 ID를 구조화해 아누비스 대상 세크메트 효과가
+  수작업·채굴·운반에만 노출되도록 수정하고 26개 효과 전수 검증 완료
+- `pnpm lint`, `pnpm typecheck`, 실제 소스 테스트 27개, 루트·Antigravity 빌드 통과
+- 1440×900·69.08초 WebM 자동 실행 영상을 최신 5174 화면에서 생성하고,
+  화면 밖 검색 결과·지도 상세는 중앙 스크롤 장면으로 분리해 7개 프레임 검수 완료
+- 과제 원문의 AI 기록·오답 교정·회고 조건을 README 제출 인덱스에 매핑하고
+  2~3분 음성 설명용 대본과 실제 오류 기반 회고 작성
+- 다음 단계는 전체 검증 후 저장소 커밋·푸시
 
 ## 2. 해결할 실제 문제
 
@@ -147,7 +182,12 @@ FModel 또는 CUE4Parse 계열 도구로 pak 인덱스를 읽고 아래 자산�
 data/generated/meta.json
 data/generated/pals.json
 data/generated/skills.json
+data/generated/world-tree-eggs.json
 public/generated/pals/*.webp
+public/generated/ui/work-suitabilities/*.png
+public/generated/ui/passive/*.png
+public/generated/ui/maps/world-tree.webp
+public/generated/ui/maps/ominous-egg.png
 ```
 
 ## 6. 기술 구성
@@ -382,4 +422,3 @@ AI가 제안한 내용
 첫 성공 기준은 화려한 화면이 아니다.
 
 > 설치된 게임 파일에서 팰 한 종의 한국어 이름, 작업 적성, 파트너 스킬, 썸네일을 정확히 읽어 한 JSON으로 만드는 것.
-
