@@ -5,6 +5,9 @@ dist/
 coverage/
 playwright-report/
 test-results/
+tmp/
+output/pdf/*
+!output/pdf/pal-comf-work-conversation-log.pdf
 output/playwright/antigravity-review/
 output/playwright/video-review/
 
