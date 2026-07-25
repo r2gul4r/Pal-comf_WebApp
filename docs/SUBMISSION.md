@@ -48,7 +48,7 @@ https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/docs/AI_WORKLOG.md
 https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/docs/RETROSPECTIVE.md
 
 실행 영상:
-https://github.com/r2gul4r/Pal-comf_WebApp/blob/main/output/playwright/pal-comf-demo.webm
+https://github.com/user-attachments/assets/9931e807-23aa-491d-8991-18d986de81d7
 
 같은 작업 대화 기록 PDF와 실행 영상 파일을 메일에도 첨부했습니다.
 
