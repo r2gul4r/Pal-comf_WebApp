@@ -7,7 +7,7 @@
 
 ![Pal-comf WebApp 실행 화면](output/playwright/pal-comf-cover.png)
 
-**[▶ 실제 동작 영상 보기](output/playwright/pal-comf-demo.webm)** · 1440×900 · 69.08초 · 6.98MB WebM · 검색, 패시브 UI, 지도 탭, 좌표 선택, 드래그, 휠 500% 확대 포함
+**[▶ 실제 동작 영상 보기](output/playwright/pal-comf-demo.webm)** · 1440×900 · 32.04초 · 3.08MB WebM · 목장 관련 팰 검색, 장인 기질 패시브 검색, 불길한 알 지도와 좌표 확인
 
 ## 30초 요약
 

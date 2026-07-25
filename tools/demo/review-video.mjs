@@ -14,7 +14,7 @@ const reviewDirectory = path.join(
   "playwright",
   "video-review",
 );
-const requestedTimestamps = [0, 12, 24, 36, 48, 58, 68];
+const requestedTimestamps = [0, 5, 10, 15, 20, 25, 30];
 const chromeCandidates = [
   process.env.PLAYWRIGHT_CHROME_PATH,
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
