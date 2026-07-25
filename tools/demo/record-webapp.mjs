@@ -107,46 +107,147 @@ try {
         left: 28px;
         bottom: 28px;
         z-index: 2147483647;
-        width: min(660px, calc(100vw - 56px));
-        padding: 18px 22px;
-        border: 1px solid rgba(62, 240, 255, 0.72);
-        border-left-width: 5px;
-        border-radius: 10px;
-        background: rgba(5, 13, 24, 0.94);
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.48);
+        isolation: isolate;
+        overflow: hidden;
+        width: min(690px, calc(100vw - 56px));
+        padding: 20px 24px 21px;
+        border: 1px solid rgba(77, 238, 255, 0.92);
+        border-left: 7px solid #45f4ff;
+        border-radius: 12px;
+        background:
+          radial-gradient(
+            circle at 8% 50%,
+            rgba(39, 231, 255, 0.16),
+            transparent 38%
+          ),
+          linear-gradient(
+            110deg,
+            rgba(3, 12, 25, 0.98),
+            rgba(6, 23, 38, 0.97)
+          );
+        box-shadow:
+          0 0 0 1px rgba(30, 210, 255, 0.2),
+          0 0 30px rgba(31, 227, 255, 0.3),
+          0 20px 64px rgba(0, 0, 0, 0.68);
+        backdrop-filter: blur(14px) saturate(1.2);
         color: #eefcff;
         font-family: Arial, "Noto Sans KR", sans-serif;
         pointer-events: none;
         opacity: 0;
-        transform: translateY(12px);
-        transition: opacity 180ms ease, transform 180ms ease;
+        filter: blur(2px);
+        transform: translateY(20px) scale(0.975);
+        transition:
+          opacity 320ms ease,
+          filter 320ms ease,
+          transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      #pal-comf-demo-caption::before {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(
+          105deg,
+          transparent 18%,
+          rgba(99, 246, 255, 0.16) 48%,
+          transparent 76%
+        );
+        content: "";
+        opacity: 0;
+        transform: translateX(-115%);
+      }
+      #pal-comf-demo-caption::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        width: 9px;
+        background: linear-gradient(
+          180deg,
+          rgba(118, 255, 255, 0.35),
+          #42f5ff 45%,
+          rgba(34, 180, 255, 0.48)
+        );
+        box-shadow: 0 0 24px rgba(56, 241, 255, 0.95);
+        content: "";
       }
       #pal-comf-demo-caption[data-visible="true"] {
         opacity: 1;
+        filter: none;
         transform: translateY(0);
+        animation: pal-comf-caption-glow 2.8s ease-in-out infinite;
+      }
+      #pal-comf-demo-caption[data-visible="true"]::before {
+        animation: pal-comf-caption-sweep 3.2s ease-in-out infinite;
       }
       #pal-comf-demo-caption[data-placement="right"] {
         right: 28px;
         left: auto;
       }
       #pal-comf-demo-caption span {
-        display: block;
-        margin-bottom: 5px;
-        color: #39e9ff;
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        margin-bottom: 8px;
+        padding: 4px 9px;
+        border: 1px solid rgba(79, 235, 255, 0.42);
+        border-radius: 4px;
+        background: rgba(21, 194, 225, 0.12);
+        box-shadow: inset 0 0 14px rgba(41, 222, 255, 0.08);
+        color: #69f5ff;
         font-size: 12px;
         font-weight: 800;
         letter-spacing: 0.12em;
       }
       #pal-comf-demo-caption strong {
+        position: relative;
+        z-index: 1;
         display: block;
-        font-size: 22px;
+        color: #ffffff;
+        font-size: 23px;
         line-height: 1.3;
+        text-shadow:
+          0 0 16px rgba(120, 246, 255, 0.26),
+          0 2px 6px rgba(0, 0, 0, 0.72);
       }
       #pal-comf-demo-caption p {
-        margin: 8px 0 0;
-        color: #c6d6e2;
-        font-size: 15px;
+        position: relative;
+        z-index: 1;
+        margin: 9px 0 0;
+        color: #dcecf5;
+        font-size: 15.5px;
+        font-weight: 500;
         line-height: 1.55;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.82);
+      }
+      @keyframes pal-comf-caption-sweep {
+        0% {
+          opacity: 0;
+          transform: translateX(-115%);
+        }
+        18% {
+          opacity: 1;
+        }
+        58%,
+        100% {
+          opacity: 0;
+          transform: translateX(115%);
+        }
+      }
+      @keyframes pal-comf-caption-glow {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 1px rgba(30, 210, 255, 0.2),
+            0 0 24px rgba(31, 227, 255, 0.24),
+            0 20px 64px rgba(0, 0, 0, 0.68);
+        }
+        50% {
+          box-shadow:
+            0 0 0 1px rgba(79, 238, 255, 0.32),
+            0 0 38px rgba(31, 227, 255, 0.4),
+            0 20px 64px rgba(0, 0, 0, 0.72);
+        }
       }
     `,
   });
@@ -165,9 +266,9 @@ try {
 
   await showCaption(page, {
     step: "PAL-COMF WEBAPP",
-    title: "거점 팰을 일일이 찾기 귀찮아서 자동화함",
-    body: "원하는 작업이나 패시브를 고르면 관련 팰과 효과를 바로 역검색함.",
-  }, 3400);
+    title: "키워드 하나로 필요한 팰을 바로 찾도록 만들었습니다",
+    body: "정식 버전에 새 패시브와 스킬이 추가됐지만, 인게임 검색이 없고 기존 DB도 팰을 하나씩 확인해야 했습니다.",
+  }, 8500);
 
   await page.locator('button[title="목장 강화 효과 필터"]').click();
   const firstPalResult = page.locator(".results-grid .game-card").first();
@@ -175,21 +276,21 @@ try {
   await scrollIntoCenter(page, firstPalResult);
   await showCaption(page, {
     step: "01 · 거점 팰 찾기",
-    title: "목장 작업을 누르면 관련 팰만 모아봄",
-    body: "목장 적성을 강화하는 팰과 파트너 스킬을 효과·수치와 함께 확인함.",
+    title: "원하는 작업 효과를 가진 팰을 찾습니다",
+    body: "목장 같은 작업 키워드를 선택하면 관련 팰과 스킬을 바로 확인할 수 있습니다.",
     placement: "right",
-  }, 4300);
+  }, 6500);
 
   await page.getByRole("button", { name: "필터 초기화" }).click();
   await page.getByLabel("스킬 종류").selectOption("passive");
   await page.getByLabel("팰 및 스킬 검색어 입력").fill("장인 기질");
   await scrollToResult(page, "장인 기질");
   await showCaption(page, {
-    step: "02 · 패시브 찾기",
-    title: "패시브 이름도 한 번에 검색함",
-    body: "장인 기질의 전체 작업 속도 효과와 수치를 바로 확인함.",
+    step: "02 · 패시브 정보",
+    title: "검색한 패시브의 정보를 확인합니다",
+    body: "패시브의 효과와 증가 수치를 한 화면에서 확인할 수 있습니다.",
     placement: "right",
-  }, 4300);
+  }, 6500);
 
   await page.getByRole("tab", { name: /불길한 알 스폰 지도/ }).click();
   const mapImage = page.getByAltText("팰월드 세계수 지역 인게임 지도");
@@ -207,9 +308,9 @@ try {
   await scrollIntoCenter(page, page.locator(".egg-map-section__header"));
   await showCaption(page, {
     step: "03 · 불길한 알 지도",
-    title: "친구들은 다 찾았는데 나만 못 찾아서 만듦",
-    body: "불길한 알이 스폰될 수 있는 위치를 지도 위 알 아이콘으로 쉽게 확인함.",
-  }, 4600);
+    title: "불길한 알의 위치를 쉽게 확인하도록 만들었습니다",
+    body: "친구들은 모두 찾았지만 저는 찾지 못해, 스폰 가능한 위치를 지도에 표시했습니다.",
+  }, 7000);
 
   const pointFourButton = page
     .locator(".egg-map-point-list button")
@@ -219,9 +320,9 @@ try {
   await scrollIntoCenter(page, page.locator(".egg-map-selected"));
   await showCaption(page, {
     step: "04 · 좌표 확인",
-    title: "알 아이콘을 누르면 인게임 좌표가 바로 나옴",
-    body: "선택한 포인트의 X·Y·Z 좌표를 보고 게임 안에서 찾아가면 됨.",
-  }, 4600);
+    title: "알 아이콘을 선택하면 좌표를 확인할 수 있습니다",
+    body: "선택한 지점의 X·Y·Z 좌표를 확인하고 게임 안에서 찾아갈 수 있습니다.",
+  }, 6500);
 } finally {
   await context.close();
   if (video) {
